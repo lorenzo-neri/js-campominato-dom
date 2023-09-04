@@ -37,10 +37,17 @@ let limit;
 /* let limit = 100; */
 
 //const bombs
-const bombsNumber = 16;
+const bombsNumber = 1;
 let bombsArray = [];
 
+let resultEl = document.querySelector('.result');
+let gameOverEl = document.createElement('h1');
+resultEl.append(gameOverEl);
 
+
+let gameOver = false;
+
+let score = 0;
 
 
 changeDifficulty();
@@ -70,6 +77,9 @@ btnReset.addEventListener('click', function (e) {
     selectDifficultyEl.style.display = 'inline-block';
 
     bombsArray = [];
+    score = 0;
+    gameOver = false;
+    gameOverEl.innerHTML = '';
 
     for (let i = 0; i < limit; i++) {
 
@@ -104,7 +114,7 @@ function generateGrid(domEl, limit) {
         /* //cliccando sulla cella, la cella si colora di azzurro ed emette un messaggio in console
         cellEl.addEventListener('click', function () {
             //console.log('click on', cellEl);
-            this.classList.toggle('if_click');
+            this.classList.toggle('point');
         }) */
 
         //append to the dom element
@@ -127,15 +137,27 @@ function generateCell(numb, el, css_class, limit) {
     cellMarkupEl.addEventListener('click', function (ev) {
         console.log(this);
 
-        if (bombsArray.includes(numb)) {
-            // bomba danger
-        } else {
-            this.classList.toggle('if_click');
+        if (!gameOver) {
+            if (bombsArray.includes(numb)) {
+                this.classList.add('bomb');
+                gameOverEl.innerHTML = '💥 BOOOM!!! Hai perso 💣';
+                gameOver = true;
+            } else {
+                if (!this.classList.contains('point') && !gameOver) {
+                    this.classList.toggle('point');
+                    score++;
+                    console.log(score + ' questo è il punteggio');
+                    if (score === limit - bombsArray.length) {
+                        gameOverEl.innerHTML = '🌷 Complimenti! Hai vinto! 🌸';
+                        gameOver = true;
+                    }
+                }
+            }
+            console.log(this.innerText);
         }
-        console.log(this.innerText);
     })
 
-    return cellMarkupEl
+    return cellMarkupEl;
 }
 
 function changeDifficulty() {
@@ -150,13 +172,15 @@ function changeDifficulty() {
 function generateBombs(limit) {
 
     // ciclo 16 volte
-    for (let i = 0; i < bombsNumber; i++) {
+    while (bombsArray.length < bombsNumber) {
+        const bomb = Math.floor(Math.random() * limit) + 1;
 
-        const bombs = Math.floor(Math.random() * limit) + 1;
-        bombsArray.push
-        // controllo condizionale .includes()  <----
-        if(bombsArray.includes())
-        console.log(bombsArray);
+        if (!bombsArray.includes(bomb)) {
+            bombsArray.push(bomb);
+        }
     }
 
+    console.log(bombsArray);
+
+    return bombsArray;
 }

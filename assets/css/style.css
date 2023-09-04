@@ -14,6 +14,11 @@ body {
     margin: 5rem auto;
 }
 
+h1 {
+    color: darkgoldenrod;
+    padding-bottom: 3rem;
+}
+
 button {
     padding: .5rem 1rem;
     margin: 0 0 3rem 0;
@@ -34,7 +39,7 @@ button {
     border: 1px solid white;
 }
 
-.if_click {
+.point {
     background-color: lightblue;
     color: black;
     border: 1px solid black;
@@ -42,4 +47,10 @@ button {
 
 #btn_reset {
     display: none;
+}
+
+.bomb {
+    background-color: darkred;
+    color: black;
+    border: 1px solid black;
 }
