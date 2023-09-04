@@ -33,11 +33,18 @@ const grid = document.querySelector('.grid');
 let selectDifficultyEl = document.querySelector('select');
 
 //limit
-const limit = changeDifficulty();
-console.log(limit);
+let limit;
+/* let limit = 100; */
 
 //const bombs
 const bombsNumber = 16;
+let boombsArray = [];
+
+
+
+
+changeDifficulty();
+console.log(limit);
 
 //al click del button play si genera una griglia di gioco
 btnPlay.addEventListener('click', function (e) {
@@ -49,6 +56,8 @@ btnPlay.addEventListener('click', function (e) {
     selectDifficultyEl.style.display = 'none';
 
     const gridEl = document.querySelector('.grid');
+
+    generateBoombs(limit);
     generateGrid(gridEl, limit);
 
 
@@ -70,6 +79,8 @@ btnReset.addEventListener('click', function (e) {
 
     }
 });
+
+
 
 /* ########## FUNCTIONS ########## */
 
@@ -114,7 +125,12 @@ function generateCell(numb, el, css_class, limit) {
     //Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console con il numero della cella cliccata.
     cellMarkupEl.addEventListener('click', function (ev) {
         console.log(this);
-        this.classList.toggle('if_click');
+
+        if (boombsArray.includes(numb)) {
+            // bomba
+        } else {
+            this.classList.toggle('if_click');
+        }
         console.log(this.innerText);
     })
 
@@ -124,6 +140,15 @@ function generateCell(numb, el, css_class, limit) {
 function changeDifficulty() {
 
     //const difficulty
-    const difficulty = Number(document.getElementById('difficulty').value);
-    console.log(difficulty);
+    limit = Number(document.getElementById('difficulty').value);
+    //console.log(difficulty);
+
+    return limit;
+}
+
+function generateBoombs(limit) {
+
+    // ciclo 16 volte
+    // controllo condizionale .includes()
+    boombsArray.push(Math.floor(Math.random() * limit) + 1);
 }
