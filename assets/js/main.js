@@ -22,11 +22,24 @@ difficoltà 3 ⇒ 49 caselle, con un numero compreso tra 1 e 49, divise in 7 cas
 
 */
 
+//const btn
 const btnPlay = document.querySelector('#btn_play');
 const btnReset = document.querySelector('#btn_reset');
+
+//const grid
+const grid = document.querySelector('.grid');
+
+//const difficulty
+/* const difficulty =  (e) => {
+    const select = document.querySelector('select');
+    select.value = ''
+}
+
+console.log(difficulty); */
+
 const limit = 100;
 
-//al click del button si genera una griglia di gioco
+//al click del button play si genera una griglia di gioco
 btnPlay.addEventListener('click', function (e) {
 
     //console.log('click');
@@ -39,6 +52,7 @@ btnPlay.addEventListener('click', function (e) {
 
 });
 
+//al click del button reset la griglia scompare
 btnReset.addEventListener('click', function (e) {
     btnPlay.style.display = 'inline-block';
     btnReset.style.display = 'none';
@@ -53,7 +67,6 @@ btnReset.addEventListener('click', function (e) {
     }
 });
 
-//griglia formata da 10 celle x 10 celle
 //creo una funzione per generare la griglia
 function generateGrid(domEl, limit) {
 
@@ -73,4 +86,5 @@ function generateGrid(domEl, limit) {
         })
     }
 }
+
 
