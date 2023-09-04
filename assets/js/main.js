@@ -29,15 +29,14 @@ const btnReset = document.querySelector('#btn_reset');
 //const grid
 const grid = document.querySelector('.grid');
 
-//const difficulty
-/* const difficulty =  (e) => {
-    const select = document.querySelector('select');
-    select.value = ''
-}
 
-console.log(difficulty); */
+
+
 
 const limit = 100;
+
+//const bombs
+const bombsNumber = 16;
 
 //al click del button play si genera una griglia di gioco
 btnPlay.addEventListener('click', function (e) {
@@ -67,6 +66,8 @@ btnReset.addEventListener('click', function (e) {
     }
 });
 
+/* ### FUNCTIONS ### */
+
 //creo una funzione per generare la griglia
 function generateGrid(domEl, limit) {
 
@@ -87,4 +88,10 @@ function generateGrid(domEl, limit) {
     }
 }
 
+function changeDifficulty() {
 
+    //const difficulty
+    const difficulty = document.getElementById('difficulty').value;
+    
+    console.log(difficulty);
+}

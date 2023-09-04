@@ -15,10 +15,11 @@
             <button id="btn_play">Gioca!</button>
 
             <!-- #difficulty -->
-            <select name="difficulty" id="difficulty">
-                <option value="difficulty_1">Difficoltà 1</option>
-                <option value="difficulty_2">Difficoltà 2</option>
-                <option value="difficulty_3">Difficoltà 3</option>
+            <select name="difficulty" id="difficulty" onchange="changeDifficulty()">
+                <option>Scegli una difficoltà</option>
+                <option value="100">Difficoltà 1</option>
+                <option value="81">Difficoltà 2</option>
+                <option value="49">Difficoltà 3</option>
             </select>
 
             <!-- #btn_reset -->
