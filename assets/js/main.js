@@ -71,7 +71,7 @@ btnReset.addEventListener('click', function (e) {
     }
 });
 
-/* ### FUNCTIONS ### */
+/* ########## FUNCTIONS ########## */
 
 //creo una funzione per generare la griglia
 function generateGrid(domEl, limit) {
