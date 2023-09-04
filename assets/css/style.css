@@ -1,0 +1,45 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: darkblue;
+}
+
+.container {
+    text-align: center;
+    max-width: 1000px;
+    margin: 5rem auto;
+}
+
+button {
+    padding: .5rem 1rem;
+    margin: 0 0 3rem 0;
+}
+
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.cell {
+    width: calc(100% / 10);
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 1px solid white;
+}
+
+.if_click {
+    background-color: lightblue;
+    color: black;
+    border: 1px solid black;
+}
+
+#btn_reset {
+    display: none;
+}
