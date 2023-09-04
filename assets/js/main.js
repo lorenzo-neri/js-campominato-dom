@@ -37,13 +37,17 @@ let limit;
 /* let limit = 100; */
 
 //const bombs
-const bombsNumber = 1;
+const bombsNumber = 16;
 let bombsArray = [];
 
 let resultEl = document.querySelector('.result');
 let gameOverEl = document.createElement('h1');
 resultEl.append(gameOverEl);
+let scoreEl = document.createElement('div');
+resultEl.append(scoreEl);
 
+scoreEl.style.color = 'white';
+scoreEl.style.paddingBottom = '1rem';
 
 let gameOver = false;
 
@@ -80,6 +84,7 @@ btnReset.addEventListener('click', function (e) {
     score = 0;
     gameOver = false;
     gameOverEl.innerHTML = '';
+    scoreEl.innerHTML = '';
 
     for (let i = 0; i < limit; i++) {
 
@@ -142,6 +147,7 @@ function generateCell(numb, el, css_class, limit) {
                 this.classList.add('bomb');
                 gameOverEl.innerHTML = '💥 BOOOM!!! Hai perso 💣';
                 gameOver = true;
+                scoreEl.innerHTML = `Hai totalizzato un punteggio di: ${score}`;
             } else {
                 if (!this.classList.contains('point') && !gameOver) {
                     this.classList.toggle('point');
@@ -150,6 +156,7 @@ function generateCell(numb, el, css_class, limit) {
                     if (score === limit - bombsArray.length) {
                         gameOverEl.innerHTML = '🌷 Complimenti! Hai vinto! 🌸';
                         gameOver = true;
+                        scoreEl.innerHTML = `Hai totalizzato il punteggio massimo di: ${score}`;
                     }
                 }
             }
