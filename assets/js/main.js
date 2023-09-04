@@ -38,7 +38,7 @@ let limit;
 
 //const bombs
 const bombsNumber = 16;
-let boombsArray = [];
+let bombsArray = [];
 
 
 
@@ -57,7 +57,7 @@ btnPlay.addEventListener('click', function (e) {
 
     const gridEl = document.querySelector('.grid');
 
-    generateBoombs(limit);
+    generateBombs(limit);
     generateGrid(gridEl, limit);
 
 
@@ -69,6 +69,7 @@ btnReset.addEventListener('click', function (e) {
     btnReset.style.display = 'none';
     selectDifficultyEl.style.display = 'inline-block';
 
+    bombsArray = [];
 
     for (let i = 0; i < limit; i++) {
 
@@ -126,8 +127,8 @@ function generateCell(numb, el, css_class, limit) {
     cellMarkupEl.addEventListener('click', function (ev) {
         console.log(this);
 
-        if (boombsArray.includes(numb)) {
-            // bomba
+        if (bombsArray.includes(numb)) {
+            // bomba danger
         } else {
             this.classList.toggle('if_click');
         }
@@ -146,9 +147,16 @@ function changeDifficulty() {
     return limit;
 }
 
-function generateBoombs(limit) {
+function generateBombs(limit) {
 
     // ciclo 16 volte
-    // controllo condizionale .includes()
-    boombsArray.push(Math.floor(Math.random() * limit) + 1);
+    for (let i = 0; i < bombsNumber; i++) {
+
+        const bombs = Math.floor(Math.random() * limit) + 1;
+        bombsArray.push
+        // controllo condizionale .includes()  <----
+        if(bombsArray.includes())
+        console.log(bombsArray);
+    }
+
 }
